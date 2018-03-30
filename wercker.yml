@@ -21,6 +21,7 @@ build:
         name: go build
         code: |
           go build ./...
+# http://devcenter.wercker.com/docs/creating-a-workflow-0-0
 deploy:
   steps:
     - script:
