@@ -25,29 +25,29 @@ build:
 deploy:
   steps:
     - script:
-      name: step one
+      name: deploy step one
       code: echo "Deploy Step 1"
     - script:
-      name: step two
+      name: deploy step two
       code: echo "Deploy Step 2"
     - script:
-      name: step three
+      name: deploy step three
       code: echo "Deploy Step 3"
     - script:
-      name: step four
+      name: deploy step four
       code: echo "Deploy Step 4"
     - script:
-      name: step five
+      name: deploy step five
       code: echo "Deploy Step 5"
 
 test:
     steps:
         - script:
-            name: step one
+            name: test 1
             code: echo "test Step 1"
         - script:
-            name: step two
+            name: test 2
             code: echo "test Step 2"
         - script:
-            name: step three
+            name: test 3
             code: echo "test Step 3"
