@@ -52,16 +52,16 @@ test:
             name: test 3
             code: echo "test Step 3"
 
-push-quay:
+push-image:
   box:
     id: alpine
     cmd: /bin/sh
 
   steps:
     - internal/docker-scratch-push:
-        username: $DOCKER_USERNAME
-        password: $DOCKER_PASSWORD
-        repository: quay.io/wercker/hello
-        registry: https://quay.io
-        tag: test-hello
-        cmd: ./gz-hello
+        repository: wcr.io/wercker/hello
+        tag: $WERCKER_GIT_BRANCH-$WERCKER_GIT_COMMIT
+        registry: https://wcr.io/v2
+        username: $WCR_USERNAME
+        password: $WCR_PASSWORD
+        cmd: ./hello
