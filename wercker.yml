@@ -44,7 +44,7 @@ test:
     steps:
         - script:
             name: test 1
-            code: echo "test Step 1"
+            code: ./hello
         - script:
             name: test 2
             code: echo "test Step 2"
