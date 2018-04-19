@@ -15,17 +15,20 @@ build:
   # Read more about steps on our dev center:
   # http://devcenter.wercker.com/docs/steps/index.html
   steps:
-    #- setup-go-workspace:
-    #    package-dir: github.com/shihchang/hello
+    - setup-go-workspace:
+        package-dir: github.com/shihchang/hello
     # Build the project
     - script:
         name: go build
         code: |
           ls
-          go build -o hello
+          go build
+          pwd
+          ls
     - script:
         name: ls it
         code: |
+          pwd
           ls
 # http://devcenter.wercker.com/docs/creating-a-workflow-0-0
 deploy:
