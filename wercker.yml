@@ -53,13 +53,13 @@ test:
     steps:
         - script:
             name: test 1
-            code: ./hello
+            code: pwd
         - script:
             name: test 2
-            code: echo "test Step 2"
+            code: ls
         - script:
             name: test 3
-            code: echo "test Step 3"
+            code: ./hello
 
 push-image:
   box:
