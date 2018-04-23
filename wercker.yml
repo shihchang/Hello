@@ -22,7 +22,7 @@ build:
         name: go build -o hello
         code: |
           ls
-          go build
+          go build -o hello
           pwd
           ls
     - script:
