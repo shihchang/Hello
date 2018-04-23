@@ -56,10 +56,10 @@ test:
             code: pwd
         - script:
             name: test 2
-            code: ls
+            code: ./hello
         - script:
             name: test 3
-            code: ./hello
+            code: echo "test Step 3"
 
 push-image:
   box:
