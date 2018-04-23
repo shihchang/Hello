@@ -45,9 +45,6 @@ deploy:
     - script:
       name: deploy step four
       code: echo "Deploy Step 4"
-    - script:
-      name: deploy step five
-      code: echo "Deploy Step 5"
 
 test:
     steps:
