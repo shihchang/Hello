@@ -29,7 +29,7 @@ build:
         name: copy it
         code: |
           cp ./hello $WERCKER_REPORT_ARTIFACTS_DIR
-          cp ./hello $WERCKER_REPORT_DIR/hello_foo
+          cp ./hello $WERCKER_REPORT_DIR
           echo "hello!!" > $WERCKER_REPORT_DIR/foo.txt
     - script:
         name: ls it
