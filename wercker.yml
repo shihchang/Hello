@@ -26,6 +26,12 @@ build:
           pwd
           ls
     - script:
+        name: copy it
+        code: |
+          cp $WERCKER_OUTPUT_DIR/hello $WERCKER_REPORT_ARTIFACTS_DIR
+          cp $WERCKER_OUTPUT_DIR/hello $WERCKER_REPORT_DIR/foo
+          echo "hello" > $WERCKER_REPORT_DIR/foo.txt
+    - script:
         name: ls it
         code: |
           pwd
