@@ -26,17 +26,17 @@ build:
           pwd
           ls
     - script:
-        name: copy it
+        name: copy to WERCKER_REPORT_ARTIFACTS_DIR
         code: |
           cp ./hello $WERCKER_REPORT_ARTIFACTS_DIR
+          echo "hello!!" > foo.txt
+          cp foo.txt $WERCKER_REPORT_ARTIFACTS_DIR
+    - script:
+        name: copy to WERCKER_REPORT_DIR
+        code: |
           cp ./hello $WERCKER_REPORT_DIR
           echo "hello!!" > foo.txt
           cp foo.txt $WERCKER_REPORT_DIR
-    - script:
-        name: ls it
-        code: |
-          pwd
-          ls
 # http://devcenter.wercker.com/docs/creating-a-workflow-0-0
 deploy:
   steps:
