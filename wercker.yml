@@ -26,29 +26,67 @@ build:
           pwd
           ls
     - script:
-        name: copy to WERCKER_REPORT_ARTIFACTS_DIR
+        name: step 1
         code: |
-          cp ./hello $WERCKER_REPORT_ARTIFACTS_DIR
-          echo "hello!!" > foo1.txt
-          cp foo1.txt $WERCKER_REPORT_ARTIFACTS_DIR
-          echo "niow!!" > foo2.txt
-          cp foo2.txt $WERCKER_REPORT_ARTIFACTS_DIR
-    - script:
-        name: copy to WERCKER_REPORT_DIR
-        code: |
+          echo '-------- WERCKER_REPORT_DIR: -----------------'
+          mkdir $WERCKER_REPORT_DIR
+          echo $WERCKER_REPORT_DIR
+          ls -l $WERCKER_REPORT_DIR
+          echo '-------- WERCKER_REPORT_ARTIFACTS_DIR: -------'
+          echo $WERCKER_REPORT_ARTIFACTS_DIR
+          ls -l $WERCKER_REPORT_ARTIFACTS_DIR
           cp ./hello $WERCKER_REPORT_DIR
-          echo "hello!!" > foo.txt
-          cp foo.txt $WERCKER_REPORT_DIR
+          echo "hello!!" > step1InReportDir1.txt
+          cp step1InReportDir1.txt $WERCKER_REPORT_DIR
+          echo "nihow!!" > step1InArtifDir1.txt
+          cp step1InArtifDir1.txt $WERCKER_REPORT_ARTIFACTS_DIR
+          cp -r $WERCKER_REPORT_DIR $WERCKER_REPORT_ARTIFACTS_DIR
+          echo $WERCKER_REPORT_DIR
+          echo $WERCKER_REPORT_ARTIFACTS_DIR
+          ls -l $WERCKER_REPORT_DIR
+          ls -l /pipeline/
+          ls -l $WERCKER_REPORT_ARTIFACTS_DIR
+          ls -l $WERCKER_REPORT_ARTIFACTS_DIR/report
+          echo '-------- WERCKER_REPORT_DIR: -----------------'
+          echo $WERCKER_REPORT_DIR
+          ls -l $WERCKER_REPORT_DIR
+          echo '-------- WERCKER_REPORT_ARTIFACTS_DIR: -------'
+          echo $WERCKER_REPORT_ARTIFACTS_DIR
+          ls -l $WERCKER_REPORT_ARTIFACTS_DIR
+          echo '-------- /pipeline/: -------'
+          ls -l /pipeline/
+          echo '-------- WERCKER_REPORT_ARTIFACTS_DIR/report: -------'
+          ls -l $WERCKER_REPORT_ARTIFACTS_DIR/report
     - script:
         name: dump WERCKER_REPORT_DIR to WERCKER_REPORT_ARTIFACTS_DIR
         code: |
+          echo '-------- WERCKER_REPORT_DIR: -----------------'
+          # mkdir $WERCKER_REPORT_DIR
+          echo $WERCKER_REPORT_DIR
+          ls -l $WERCKER_REPORT_DIR
+          echo '-------- WERCKER_REPORT_ARTIFACTS_DIR: -------'
+          echo $WERCKER_REPORT_ARTIFACTS_DIR
+          ls -l $WERCKER_REPORT_ARTIFACTS_DIR
           cp ./hello $WERCKER_REPORT_DIR
-          echo "hello!!" > fooReport1.txt
-          cp fooReport1.txt $WERCKER_REPORT_DIR
-          echo "nihow!!" > fooReport2.txt
-          cp fooReport2.txt $WERCKER_REPORT_DIR
+          echo "hello!!" > fooInReportDir1.txt
+          echo "hello!!" > fooInReportDir2.txt
+          cp fooInReportDir1.txt $WERCKER_REPORT_DIR
+          cp fooInReportDir2.txt $WERCKER_REPORT_DIR
+          echo "nihow!!" > fooInArtifDir1.txt
+          echo "nihow!!" > fooInArtifDir2.txt
+          cp fooInArtifDir1.txt $WERCKER_REPORT_ARTIFACTS_DIR
+          cp fooInArtifDir2.txt $WERCKER_REPORT_ARTIFACTS_DIR
           cp -r $WERCKER_REPORT_DIR $WERCKER_REPORT_ARTIFACTS_DIR
-        
+          echo '-------- WERCKER_REPORT_DIR: -----------------'
+          echo $WERCKER_REPORT_DIR
+          ls -l $WERCKER_REPORT_DIR
+          echo '-------- WERCKER_REPORT_ARTIFACTS_DIR: -------'
+          echo $WERCKER_REPORT_ARTIFACTS_DIR
+          ls -l $WERCKER_REPORT_ARTIFACTS_DIR
+          echo '-------- /pipeline/: -------'
+          ls -l /pipeline/
+          echo '-------- WERCKER_REPORT_ARTIFACTS_DIR/report: -------'
+          ls -l $WERCKER_REPORT_ARTIFACTS_DIR/report
         
 # http://devcenter.wercker.com/docs/creating-a-workflow-0-0
 deploy:
