@@ -42,6 +42,11 @@ build:
     - script:
         name: dump WERCKER_REPORT_DIR to WERCKER_REPORT_ARTIFACTS_DIR
         code: |
+          cp ./hello $WERCKER_REPORT_DIR
+          echo "hello!!" > fooReport1.txt
+          cp fooReport1.txt $WERCKER_REPORT_DIR
+          echo "nihow!!" > fooReport2.txt
+          cp fooReport2.txt $WERCKER_REPORT_DIR
           cp -r $WERCKER_REPORT_DIR $WERCKER_REPORT_ARTIFACTS_DIR
         
         
