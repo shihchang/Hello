@@ -29,14 +29,22 @@ build:
         name: copy to WERCKER_REPORT_ARTIFACTS_DIR
         code: |
           cp ./hello $WERCKER_REPORT_ARTIFACTS_DIR
-          echo "hello!!" > foo.txt
-          cp foo.txt $WERCKER_REPORT_ARTIFACTS_DIR
+          echo "hello!!" > foo1.txt
+          cp foo1.txt $WERCKER_REPORT_ARTIFACTS_DIR
+          echo "niow!!" > foo2.txt
+          cp foo2.txt $WERCKER_REPORT_ARTIFACTS_DIR
     - script:
         name: copy to WERCKER_REPORT_DIR
         code: |
           cp ./hello $WERCKER_REPORT_DIR
           echo "hello!!" > foo.txt
           cp foo.txt $WERCKER_REPORT_DIR
+    - script:
+        name: dump WERCKER_REPORT_DIR to WERCKER_REPORT_ARTIFACTS_DIR
+        code: |
+          cp -r $WERCKER_REPORT_DIR $WERCKER_REPORT_ARTIFACTS_DIR
+        
+        
 # http://devcenter.wercker.com/docs/creating-a-workflow-0-0
 deploy:
   steps:
